@@ -1,0 +1,70 @@
+{
+  "name": "react-app",
+  "version": "1.0.0",
+  "description": "A React App",
+  "author": "Yulia Kanapatskaya",
+  "license": "ISC",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git"
+  },
+  "homepage": "http://ykanapatskaya.github.io/bitly-page",
+  "scripts": {
+    "dev": "webpack-dev-server --inline --progress --config webpack.config.js",
+    "build": "webpack --config webpack.config.js --colors -p",
+    "clean": "rm -rf dist/ && rm -rf node_modules && npm cache clear --force",
+    "test": "jest",
+    "lint": "eslint --ext .js",
+    "stylelint": "stylelint 'src/**/*.scss'; exit 0",
+    "format-check": "prettier --list-different \"**/*.{js,vue}\" --ignore-path .eslintignore",
+    "format": "prettier --write \"**/*.{js,vue}\" --ignore-path .eslintignore",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "./src/main/react/src/setupTests.js",
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+    },
+    "testPathIgnorePatterns": [
+      "dummy*"
+    ]
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 9"
+  ],
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "css-loader": "^1.0.0",
+    "node-sass": "^4.9.2",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.21.0",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5"
+  },
+  "dependencies": {
+    "dotenv-webpack": "^1.5.7",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2"
+  }
+}

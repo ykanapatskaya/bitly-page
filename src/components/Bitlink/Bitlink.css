@@ -1,0 +1,44 @@
+@import '../../assets/css/variables.scss';
+
+.Bitlink {
+  padding: 2rem 0;
+  overflow: hidden;
+  font-size: 0.8rem;
+
+  h3 {
+    margin: 0 0 0.3rem;
+    color: $dark-grey;
+
+    a {
+      color: inherit;
+    }
+  }
+
+  a {
+    word-break: break-all;
+    color: $light-grey;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &-details {
+    margin-top: 2rem;
+    display: flex;
+
+    & > span {
+      flex: 1 1 auto;
+    }
+  }
+
+  &-shorten-link {
+    color: $orange;
+    cursor: copy;
+  }
+
+  &-counter {
+    text-align: right;
+    color: $light-grey;
+  }
+}
