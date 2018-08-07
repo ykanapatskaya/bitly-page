@@ -8,7 +8,7 @@
   "repository": {
     "type": "git"
   },
-  "homepage": "http://ykanapatskaya.github.io/bitly-page",
+  "homepage": "https://ykanapatskaya.github.io/bitly-page/",
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config webpack.config.js",
     "build": "webpack --config webpack.config.js --colors -p",
@@ -18,7 +18,7 @@
     "stylelint": "stylelint 'src/**/*.scss'; exit 0",
     "format-check": "prettier --list-different \"**/*.{js,vue}\" --ignore-path .eslintignore",
     "format": "prettier --write \"**/*.{js,vue}\" --ignore-path .eslintignore",
-    "predeploy": "npm run build",
+    "predeploy": "npm run build && rm -rf node_modules/gh-pages/.cache",
     "deploy": "gh-pages -d dist"
   },
   "jest": {

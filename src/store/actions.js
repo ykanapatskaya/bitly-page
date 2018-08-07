@@ -9,18 +9,19 @@ export function shortLink(longUrl) {
         const info = await bitlySDK.info(bitlyUrl);
         const clicks = await bitlySDK.clicks([bitlyUrl]);
 
+        console.log(info, clicks);
         const data = {
           short_url: bitlyUrl,
           long_url: response.long_url,
           title: info.title,
-          global_clicks: clicks[0].global_clicks
+          global_count: clicks[0].global_clicks
         }
 
-        dispatch({ 
-          type: 'UPDATE_SHORTEN_LIST', 
+        dispatch({
+          type: 'UPDATE_SHORTEN_LIST',
           data
         })
-        
+
       })
       .catch(errors => {
         console.log('errors', errors);
