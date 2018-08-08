@@ -52,3 +52,6 @@ This application was created from scratch starting with the command `npm init`. 
   - `dotenv` for hidding private data
   - `gh-pages` for deployment to GitHub pages
   - `HtmlWebpackPlugin` - for building process
+
+## NOTE
+Copying into clipboard works only in IE and Chrome. Additional work is needed to implement this feature crossbrowserly. Also some animation should be added to the link during copying. 
