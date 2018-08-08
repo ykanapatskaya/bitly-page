@@ -6,9 +6,10 @@ It's deployed to Github Pages for demonstration.
 
 ## INSTALATION
 To install this app do the following:
-1. Clone this repo
+1. Clone this repo and go to the created directory
 ```shell
 git clone git@github.com:ykanapatskaya/bitly-page.git
+cd bitly-page
 
 ```
 
