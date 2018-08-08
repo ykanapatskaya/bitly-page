@@ -24,18 +24,22 @@ class Bitlink extends Component {
     });
   }
 
+  getNumberWithCommas(n) {
+    return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
   renderLink(name) {
     const { long_url, title } = this.props.link;
 
-    return <a href={long_url} title={title || 'Bitly link'} target="_blank">{ name }</a>
+    return <a className="Bitlink__link" href={long_url} title={title || 'Bitly link'} target="_blank">{ name }</a>
   }
 
   render() {
-    const { 
-      long_url, 
-      title, 
-      global_count, 
-      short_url 
+    const {
+      long_url,
+      title,
+      global_count,
+      short_url
     } = this.props.link;
 
     return (
@@ -44,13 +48,12 @@ class Bitlink extends Component {
           { this.renderLink(title || long_url) }
         </h3>
         { title && this.renderLink(long_url) }
-        <div className="Bitlink-details">
-          <span className="Bitlink-shorten-link" onClick={this.copyIntoClipboard}>
+        <div className="Bitlink__details">
+          <span className="Bitlink__shorten-link" onClick={this.copyIntoClipboard}>
             { short_url }
           </span>
-          <span className="Bitlink-counter">
-            10
-            { global_count }
+          <span className="Bitlink__counter">
+            { this.getNumberWithCommas(global_count) }
           </span>
         </div>
       </div>

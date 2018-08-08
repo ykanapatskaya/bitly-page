@@ -27,5 +27,4 @@ class SDKClient {
   }
 }
 
-//export default {};
 export default new SDKClient();

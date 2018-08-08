@@ -1,0 +1,41 @@
+@import '@/assets/css/media.scss';
+
+header {
+  display: flex;
+  align-items: center;
+  max-width: 80rem;
+  margin: 0 auto;
+  flex-direction: column;
+
+  @include mintablet {
+    flex-direction: row;
+  }
+
+  img {
+    flex: none;
+  }
+
+  nav {
+    flex: 1 1 auto;
+    display: inline-flex;
+    justify-content: space-between;
+    align-self: stretch;
+
+    @include mintablet {
+      justify-content: flex-start;
+      align-self: center;
+      margin: 0 3rem;
+
+      a {
+        padding: 0 1rem;
+      }
+    }
+
+    a {
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      color: white;
+      flex: 0 0 auto;
+    }
+  }
+}

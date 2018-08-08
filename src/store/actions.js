@@ -1,6 +1,6 @@
-import bitlySDK from '../sdk/sdk.client';
+import bitlySDK from '@/sdk/sdk.client';
 
-export function shortLink(longUrl) {
+export function shortenLink(longUrl) {
   return dispatch => {
     bitlySDK.shorten(longUrl)
       .then(async (response) => {
@@ -9,7 +9,6 @@ export function shortLink(longUrl) {
         const info = await bitlySDK.info(bitlyUrl);
         const clicks = await bitlySDK.clicks([bitlyUrl]);
 
-        console.log(info, clicks);
         const data = {
           short_url: bitlyUrl,
           long_url: response.long_url,

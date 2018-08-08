@@ -16,7 +16,7 @@ class LinkList extends Component {
     return (
       <div className="LinkList">
         { links.map((el, index) =>
-          <div className="LinkList-item" key={el.title + index}>
+          <div className="LinkList__item" key={el.title + index}>
             <Bitlink link={el} />
           </div>
         )}

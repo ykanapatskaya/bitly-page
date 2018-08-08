@@ -1,6 +1,13 @@
+@import '@/assets/css/variables.scss';
+
 .LinkList {
-  &-item {
-    border-bottom: 1px solid #ccc;
+  background: white;
+  padding: 0 $inner-padding;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, .1);
+  border-radius: $border-radius;
+
+  &__item {
+    border-bottom: $grey-line;
 
     &:last-child {
       border-bottom: none;

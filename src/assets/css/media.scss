@@ -1,0 +1,17 @@
+@mixin minphone {
+  @media only screen and (min-width: 480px) {
+    @content;
+  }
+}
+
+@mixin mintablet {
+  @media only screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin mindesktop {
+  @media only screen and (min-width: 970px) {
+    @content;
+  }
+}

@@ -1,3 +1,5 @@
+'use strict';
+const path = require('path');
 const Dotenv = require('dotenv-webpack');
 const webpack = require('webpack');
 
@@ -33,7 +35,10 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['*', '.js']
+    extensions: ['.js', '.scss', '.css'],
+    alias: {
+      '@': path.resolve(__dirname, 'src')
+    }
   },
   plugins: [
     new Dotenv(),

@@ -1,4 +1,6 @@
-@import '../../assets/css/variables.scss';
+@import '@/assets/css/variables.scss';
+
+$icon-size: 30px;
 
 .Bitlink {
   padding: 2rem 0;
@@ -23,7 +25,7 @@
     }
   }
 
-  &-details {
+  &__details {
     margin-top: 2rem;
     display: flex;
 
@@ -32,13 +34,16 @@
     }
   }
 
-  &-shorten-link {
+  &__shorten-link {
     color: $orange;
     cursor: copy;
   }
 
-  &-counter {
+  &__counter {
     text-align: right;
     color: $light-grey;
+    background: url('../../assets/images/click-icon.svg') no-repeat bottom right;
+    background-size: $icon-size auto;
+    padding-right: $icon-size + 5;
   }
 }
