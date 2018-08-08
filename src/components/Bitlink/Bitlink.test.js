@@ -2,6 +2,10 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Bitlink from './Bitlink';
 
+const shalowWithProp = (prop) => {
+  return shallow(<Bitlink link={prop} />)
+}
+
 describe('Bitlink', () => {
   let link = {
     title: '',
@@ -11,26 +15,25 @@ describe('Bitlink', () => {
   }
 
   it('is a React instance', () => {
-    let wrapper = shallow(<Bitlink link={link} />)
+    let wrapper = shalowWithProp(link);
     expect(wrapper.instance()).toBeTruthy();
   });
 
-  it('one links', () => {
+  it('renders long link as a title when there is no title', () => {
     link.title = null;
-    let wrapper = shallow(<Bitlink link={link} />)
+    let wrapper = shalowWithProp(link);
     expect(wrapper.find('.Bitlink__link').length).toBe(1);
   });
 
-  it('two links', () => {
+  it('renders title and long link when title is present', () => {
     link.title = 'Title';
-    let wrapper = shallow(<Bitlink link={link} />)
+    let wrapper = shalowWithProp(link);
     expect(wrapper.find('.Bitlink__link').length).toBe(2);
   });
 
-  it('commas numbers', () => {
+  it('dispay click counter with commas', () => {
     link.global_count = 10000;
-    let wrapper = shallow(<Bitlink link={link} />)
-    console.log(wrapper.find('.Bitlink__counter').text())
+    let wrapper = shalowWithProp(link);
     expect(wrapper.find('.Bitlink__counter').text()).toBe('10,000');
   });
 

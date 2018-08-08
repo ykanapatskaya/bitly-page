@@ -28,17 +28,19 @@ main {
   margin: 5rem auto 0;
 
   @include mindesktop {
-    margin-top: 10rem;
+    margin-top: 8rem;
   }
 
   p {
     margin: 0 0 3rem;
+    letter-spacing: 1px;
   }
 
   h1 {
     text-transform: uppercase;
     font-size: 2rem;
     margin: 0 0 1rem;
+    letter-spacing: 2px;
 
     @include mindesktop {
       font-size: 2.7rem;

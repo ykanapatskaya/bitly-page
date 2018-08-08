@@ -2,6 +2,7 @@
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -10,7 +11,7 @@ module.exports = {
   },
   output: {
     path: __dirname + '/dist',
-    publicPath: '/',
+    publicPath: './',
     filename: 'bundle.js'
   },
   module: {
@@ -42,7 +43,11 @@ module.exports = {
   },
   plugins: [
     new Dotenv(),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: 'index.html'
+    }),
   ],
   devServer: {
     contentBase: './dist',

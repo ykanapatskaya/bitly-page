@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './Bitlink.css';
 
-// TODO: Pure component ???
-
 class Bitlink extends Component {
   static propTypes = {
     link: PropTypes.shape({

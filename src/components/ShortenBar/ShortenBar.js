@@ -9,20 +9,42 @@ class ShortenBar extends Component {
     super(props);
 
     this.state = {
-      url: ''
+      url: '',
+      error: null
     }
   }
 
   handleInputChange = (e) => {
+    if (this.state.error) {
+      this.resetErrors();
+    }
+
     this.setState({
       url: e.target.value
     })
   }
 
+  resetErrors() {
+    this.setState({
+      error: null
+    })
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.shortenLink(this.state.url);
-    this.resetInput();
+    this.props.shortenLink(this.state.url)
+      .then(() => {
+        this.resetInput();
+      })
+      .catch(errors => {
+        this.setError(errors);
+      });
+  }
+
+  setError(err) {
+    this.setState({
+      error: err
+    })
   }
 
   resetInput() {
@@ -32,20 +54,30 @@ class ShortenBar extends Component {
   }
 
   render() {
+    const { error, url } = this.state;
+
     return (
-      <form className="ShortenBar" onSubmit={this.handleSubmit}>
-        <div className="ShortenBar__input-wrapper">
-          <input
-            name="link"
-            type="text"
-            id="link"
-            aria-label="Paste a link to shorten it"
-            placeholder="Paste a link to shorten it"
-            value={this.state.url}
-            onChange={this.handleInputChange}
-          />
+      <form 
+        className={`ShortenBar ${error ? 'error' : ''}`} 
+        onSubmit={this.handleSubmit}
+      >
+        <div className="ShortenBar__error">Something went wrong. Try again</div>
+        <div className="ShortenBar__wrapper">
+          <div className="ShortenBar__input">
+            <input
+              name="link"
+              type="text"
+              id="link"
+              aria-label="Paste a link to shorten it"
+              placeholder="Paste a link to shorten it"
+              value={url}
+              onChange={this.handleInputChange}
+            />
+          </div>
+          <div className="ShortenBar__submit">
+            <input type="submit" value="Shorten" disabled={!url} />
+          </div>
         </div>
-        <input type="submit" value="Shorten" />
       </form>
     )
   }

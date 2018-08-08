@@ -1,7 +1,7 @@
 {
-  "name": "react-app",
+  "name": "bitly-page",
   "version": "1.0.0",
-  "description": "A React App",
+  "description": "A React App for getting shorten links using Bitly API",
   "author": "Yulia Kanapatskaya",
   "license": "ISC",
   "main": "src/index.js",
@@ -12,22 +12,19 @@
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config webpack.config.js",
     "build": "webpack --config webpack.config.js --colors -p",
-    "clean": "rm -rf dist/ && rm -rf node_modules && npm cache clear --force",
+    "clean": "rm -rf dist/ && rm -rf node_modules && rm package-lock.json && rm *.log && rm .env && npm cache clear --force",
     "test": "jest",
-    "lint": "eslint --ext .js",
-    "stylelint": "stylelint 'src/**/*.scss'; exit 0",
-    "format-check": "prettier --list-different \"**/*.{js,vue}\" --ignore-path .eslintignore",
-    "format": "prettier --write \"**/*.{js,vue}\" --ignore-path .eslintignore",
     "predeploy": "npm run build && rm -rf node_modules/gh-pages/.cache",
     "deploy": "gh-pages -d dist"
   },
   "jest": {
-    "verbose": true,
+    "verbose": false,
     "testURL": "http://localhost/",
     "setupTestFrameworkScriptFile": "./setupTest.js",
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
-      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js",
+      "^@/(.*)$": "<rootDir>/src/$1"
     }
   },
   "browserslist": [
@@ -51,10 +48,12 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "gh-pages": "^1.2.0",
+    "html-webpack-plugin": "^3.2.0",
     "jest": "^23.4.2",
     "node-sass": "^4.9.2",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
+    "redux-mock-store": "^1.5.3",
     "redux-thunk": "^2.3.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.21.0",

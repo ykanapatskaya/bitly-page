@@ -20,6 +20,8 @@ header {
     display: inline-flex;
     justify-content: space-between;
     align-self: stretch;
+    font-size: 0.75rem;
+    color: white;
 
     @include mintablet {
       justify-content: flex-start;
@@ -33,8 +35,7 @@ header {
 
     a {
       text-transform: uppercase;
-      font-size: 0.7rem;
-      color: white;
+      
       flex: 0 0 auto;
     }
   }
